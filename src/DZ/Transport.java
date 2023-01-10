@@ -1,8 +1,8 @@
 package DZ;
 
-public class Transport{
+public abstract class Transport{
 
-    public String brand;
+    private String brand;
     private String model;
     private final int productionYear;
     private final String productionCountry;
