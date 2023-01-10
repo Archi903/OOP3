@@ -8,7 +8,6 @@ public class Car extends Transport {
     private final int seatsAmount;
     private boolean typeTires;
     private Key key;
-    private Transport setCar;
 
     private static final String DEFAULT_VALUE = "default";
     private static final double DEFAULT_ENGINE_VALUE = 1.5;
@@ -34,7 +33,6 @@ public class Car extends Transport {
         }
         this.typeTires = typeTires;
         setKey(remoteStart, keyless);
-        setCar(brand, model, productionYear, productionCountry, color, maxSpeed);
     }
 
     class Key {
@@ -118,20 +116,20 @@ public class Car extends Transport {
         this.key = new Key(keyless, remoteStart);
     }
 
-    public void setCar(String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed) {
-        this.setCar = new Transport(brand, model, productionYear, productionCountry, color, maxSpeed) {
-        };
-    }
 
     @Override
     public String toString() {
-        return "Машина: " + setCar +
+        return "Машина: " +  "бренд = " + getBrand() +
+                ", модель = " + getModel() +
+                ", год производства = " + getProductionYear() +
+                ", страна производства = " + getProductionCountry() +
+                ", цвет = " + getColor() +
                 ", мощность двигателя = " + engineVolume +
                 ", трансмиссия = " + transmission + '\'' +
                 ", тип кузова = " + bodyType + '\'' +
                 ", регистрационный номер = " + registrationNumber + '\'' +
                 ", количество мест = " + seatsAmount +
                 ", летние шины = " + typeTires +
-                ", key=" + key;
+                ", key=" + key + ", максимальная скорость = " + getMaxSpeed();
     }
 }
